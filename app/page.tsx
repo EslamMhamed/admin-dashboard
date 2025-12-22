@@ -1,8 +1,10 @@
-import { Button } from "@/components/ui/button";
+import DashboradCard from "@/components/dashboard/DashboradCard";
 
 export default function Home() {
  
   return <>
-    <h1 className="text-2xl">Dashboard</h1>
+    <div className="flex flex-col md:flex-row justify-between gap-5 mb-5 ">
+      <DashboradCard />
+    </div>
   </>
 }
