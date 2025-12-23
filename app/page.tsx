@@ -11,6 +11,6 @@ export default function Home() {
       <DashboradCard title="Users" count={750} icon={<User className="text-slate-500 " size={72} />} />
       <DashboradCard title="Comments" count={1200} icon={<MessageCircle className="text-slate-500 " size={72} />} />
     </div>
-    <PostsTable title="Latest Posts" />
+    <PostsTable title="Latest Posts" limit={5} />
   </>
 }
