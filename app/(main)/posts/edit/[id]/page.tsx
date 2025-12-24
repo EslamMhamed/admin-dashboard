@@ -8,7 +8,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { da } from "zod/locales";
+import { toast } from "sonner";
 
 const formSchema = z.object({
   title: z.string().min(1, {
@@ -33,6 +33,7 @@ type PostEditPageProps = {
 
 function PostEditPage({ params }: PostEditPageProps) {
   const { id } = params;
+  
 
   const post = posts.find((post) => post.id === id);
 
@@ -47,7 +48,7 @@ function PostEditPage({ params }: PostEditPageProps) {
   });
 
   const handleSubmit = (data: z.infer<typeof formSchema>) => {
-    console.log(data)
+    toast.success("Post has been updated successfully")
   };
 
   return (
