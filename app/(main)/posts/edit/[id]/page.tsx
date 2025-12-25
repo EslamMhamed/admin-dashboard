@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
   title: z.string().min(1, {
@@ -33,7 +34,7 @@ type PostEditPageProps = {
 
 function PostEditPage({ params }: PostEditPageProps) {
   const { id } = params;
-  
+  const router = useRouter()
 
   const post = posts.find((post) => post.id === id);
 
@@ -49,6 +50,7 @@ function PostEditPage({ params }: PostEditPageProps) {
 
   const handleSubmit = (data: z.infer<typeof formSchema>) => {
     toast.success("Post has been updated successfully")
+    router.push("/posts")
   };
 
   return (
@@ -121,3 +123,4 @@ function PostEditPage({ params }: PostEditPageProps) {
 }
 
 export default PostEditPage;
+
